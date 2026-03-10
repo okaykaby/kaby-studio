@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
     .hero {
-      background: var(--cream);
+      background: #ffffff;
     }
 
     body::before {
@@ -45,7 +45,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 28px 52px;
-      background: var(--cream);
+      background: #ffffff;
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
@@ -224,7 +224,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%) translateY(55%);
+      transform: translateX(-50%) translateY(30%);
       z-index: 8;
       width: 240px;
       will-change: transform;
@@ -237,7 +237,7 @@
     .robot-state { width: 240px; height: auto; display: block; }
     @keyframes robot-arrive {
       0%   { opacity: 0; transform: translateX(-50%) translateY(120%); }
-      100% { opacity: 1; transform: translateX(-50%) translateY(55%); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(30%); }
     }
 
     /* Scroll */
@@ -469,7 +469,7 @@
         var vh   = window.innerHeight;
         var sink = Math.min(sy / (vh * 0.55), 1) * 210;
         wrap.style.animation = 'none';
-        var baseOffset = wrap.offsetHeight * 0.55; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
+        var baseOffset = wrap.offsetHeight * 0.30; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
         if (sy > 40 && !lookingDown) {
           lookingDown = true;
           showState('lookdown');
