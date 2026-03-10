@@ -276,7 +276,8 @@
       position: relative;
       overflow: hidden;
       background: var(--ink);
-      padding: 110px 52px 280px;
+      padding: 110px 52px 110px;
+      margin-top: -2px;
     }
     .intro-inner {
       max-width: 1000px;
@@ -332,14 +333,14 @@
     .about-robot {
       position: absolute;
       bottom: 0;
-      left: 120px;
+      left: 52px;
       width: 240px;
       z-index: 10;
     }
     .about-robot-inner {
       position: relative;
       width: 240px;
-      transform: translateY(55%);
+      transform: translateY(50%);
     }
     .about-robot img {
       width: 240px;
@@ -352,15 +353,13 @@
     }
 
     @media (max-width: 900px) {
-      .about-robot { width: 180px; left: 60px; }
+      .about-robot { width: 180px; left: 40px; }
       .about-robot-inner { width: 180px; }
       .about-robot img { width: 180px; }
+      .intro-section { padding-bottom: 160px; }
     }
     @media (max-width: 600px) {
-      .about-robot { width: 130px; left: 20px; }
-      .about-robot-inner { width: 130px; }
-      .about-robot img { width: 130px; }
-      .intro-section { padding-bottom: 200px; }
+      .about-robot { display: none; }
     }
   </style>
 </head>
