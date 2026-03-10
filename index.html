@@ -164,7 +164,7 @@
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: default;
     }
-    .deploy-word:hover {
+    .deploy-word:hover, .deploy-word.tipped {
       transform: rotate(18deg) translateY(4px);
     }
     @keyframes draw-circle {
@@ -273,6 +273,8 @@
 
     /* DARK SECTION */
     .intro-section {
+      position: relative;
+      overflow: hidden;
       background: var(--ink);
       padding: 110px 52px;
     }
@@ -316,8 +318,32 @@
       font-style: normal;
       transform: rotate(-2deg);
       display: inline-block;
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 3.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s, opacity 0.3s ease 0.8s;
+    }
+    .intro-closing.visible {
+      opacity: 1;
+      clip-path: inset(0 0% 0 0);
     }
 
+
+    /* ABOUT SECTION ROBOT */
+    .about-robot {
+      position: absolute;
+      bottom: 0;
+      left: 52px;
+      width: 160px;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .about-robot img {
+      width: 160px;
+      height: auto;
+      display: block;
+      transform: translateY(42%);
+      filter: invert(1);
+    }
     @keyframes fade-in {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -431,6 +457,10 @@
       <div></div>
       <p class="intro-text intro-text-second">I've spent years leading campaign direction for clients across entertainment, music, and digital media, building brand worlds and storytelling frameworks that had to work across channels, audiences, and stakeholders simultaneously. I specialize in protecting tone and continuity across complex creative environments, and I'm equally comfortable leading a concepting session, selling an idea to a skeptical client, or getting into the weeds with a team to make sure the execution lands the way the concept intended.</p>
     </div>
+  <div class="about-robot">
+    <img class="about-robot-static" src="robot-static.png" alt="" />
+    <img class="about-robot-blink" src="robot-blink.png" alt="" style="display:none;position:absolute;top:0;left:0;" />
+  </div>
   </section>
 
   <script>
@@ -467,10 +497,10 @@
         var sink = Math.min(sy / (vh * 0.55), 1) * 210;
         wrap.style.animation = 'none';
         var baseOffset = wrap.offsetHeight * 0.30; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
-        if (sy > 5 && !lookingDown) {
+        if (sy > 1 && !lookingDown) {
           lookingDown = true;
           showState('lookdown');
-        } else if (sy <= 5 && lookingDown) {
+        } else if (sy <= 1 && lookingDown) {
           lookingDown = false;
           showState('normal');
         }
@@ -502,6 +532,47 @@
       el.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
       observer.observe(el);
     });
+    // Deploy word — stays tipped on first hover
+    const deployWord = document.querySelector('.deploy-word');
+    if (deployWord) {
+      deployWord.addEventListener('mouseenter', () => {
+        deployWord.classList.add('tipped');
+      });
+    }
+
+    // Foundation write-in on scroll into view
+    const closing = document.querySelector('.intro-closing');
+    if (closing) {
+      const closingObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            closing.classList.add('visible');
+            closingObserver.unobserve(closing);
+          }
+        });
+      }, { threshold: 0 });
+      closingObserver.observe(closing);
+    }
+    // About section robot blink
+    const aboutStatic = document.querySelector('.about-robot-static');
+    const aboutBlink  = document.querySelector('.about-robot-blink');
+    function aboutRobotBlink() {
+      if (!aboutStatic || !aboutBlink) return;
+      aboutStatic.style.display = 'none';
+      aboutBlink.style.display  = 'block';
+      setTimeout(() => {
+        aboutStatic.style.display = 'block';
+        aboutBlink.style.display  = 'none';
+      }, 180);
+    }
+    function scheduleAboutBlink() {
+      setTimeout(() => {
+        aboutRobotBlink();
+        setTimeout(() => { aboutRobotBlink(); }, 300);
+        scheduleAboutBlink();
+      }, 2800 + Math.random() * 2000);
+    }
+    scheduleAboutBlink();
   </script>
 
 </body>
