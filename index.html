@@ -332,10 +332,14 @@
     .about-robot {
       position: absolute;
       bottom: 0;
-      left: 52px;
+      left: 120px;
       width: 160px;
       overflow: hidden;
       z-index: 10;
+    }
+    .about-robot-inner {
+      position: relative;
+      width: 160px;
     }
     .about-robot img {
       width: 160px;
@@ -458,8 +462,10 @@
       <p class="intro-text intro-text-second">I've spent years leading campaign direction for clients across entertainment, music, and digital media, building brand worlds and storytelling frameworks that had to work across channels, audiences, and stakeholders simultaneously. I specialize in protecting tone and continuity across complex creative environments, and I'm equally comfortable leading a concepting session, selling an idea to a skeptical client, or getting into the weeds with a team to make sure the execution lands the way the concept intended.</p>
     </div>
   <div class="about-robot">
-    <img class="about-robot-static" src="robot-static.png" alt="" />
-    <img class="about-robot-blink" src="robot-blink.png" alt="" style="display:none;position:absolute;top:0;left:0;" />
+    <div class="about-robot-inner">
+      <img class="about-robot-static" src="robot-static.png" alt="" style="width:160px;filter:invert(1) opacity(0.4);display:block;transform:translateY(42%);" />
+      <img class="about-robot-blink" src="robot-blink.png" alt="" style="display:none;position:absolute;top:0;left:0;width:160px;filter:invert(1) opacity(0.4);transform:translateY(42%);" />
+    </div>
   </div>
   </section>
 
