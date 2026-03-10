@@ -222,7 +222,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%) translateY(62%);
+      transform: translateX(-50%) translateY(48%);
       z-index: 20;
       width: 240px;
       will-change: transform;
@@ -235,7 +235,7 @@
     .robot-state { width: 240px; height: auto; display: block; }
     @keyframes robot-arrive {
       0%   { opacity: 0; transform: translateX(-50%) translateY(120%); }
-      100% { opacity: 1; transform: translateX(-50%) translateY(62%); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(48%); }
     }
 
     /* Scroll */
@@ -263,7 +263,7 @@
     }
 
     /* DIVIDER */
-    .angled-divider { width: 100%; line-height: 0; margin-top: -4px; display: block; }
+    .angled-divider { width: 100%; line-height: 0; margin-top: -1px; display: block; }
     .angled-divider svg { display: block; width: 100%; }
 
     /* DARK SECTION */
@@ -462,7 +462,7 @@
         var vh   = window.innerHeight;
         var sink = Math.min(sy / (vh * 0.55), 1) * 210;
         wrap.style.animation = 'none';
-        var baseOffset = wrap.offsetHeight * 0.62; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
+        var baseOffset = wrap.offsetHeight * 0.48; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
         if (sy > 40 && !lookingDown) {
           lookingDown = true;
           showState('lookdown');
