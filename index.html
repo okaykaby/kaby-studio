@@ -467,10 +467,10 @@
         var sink = Math.min(sy / (vh * 0.55), 1) * 210;
         wrap.style.animation = 'none';
         var baseOffset = wrap.offsetHeight * 0.30; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
-        if (sy > 40 && !lookingDown) {
+        if (sy > 5 && !lookingDown) {
           lookingDown = true;
           showState('lookdown');
-        } else if (sy <= 40 && lookingDown) {
+        } else if (sy <= 5 && lookingDown) {
           lookingDown = false;
           showState('normal');
         }
