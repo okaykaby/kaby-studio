@@ -461,8 +461,8 @@
     </div>
   <div class="about-robot">
     <div class="about-robot-inner">
-      <img class="about-robot-static" src="robot-static.png" alt="" style="width:240px;filter:invert(1) opacity(0.75);display:block;" />
-      <img class="about-robot-blink" src="robot-blink.png" alt="" style="display:none;position:absolute;top:0;left:0;width:240px;filter:invert(1) opacity(0.75);" />
+      <img class="about-robot-static" src="robot-static.png" alt="" style="width:240px;filter:invert(1) opacity(0.9);display:block;" />
+      <img class="about-robot-blink" src="robot-blink.png" alt="" style="display:none;position:absolute;top:0;left:0;width:240px;filter:invert(1) opacity(0.9);" />
     </div>
   </div>
   </section>
@@ -557,26 +557,32 @@
       }, { threshold: 0 });
       closingObserver.observe(closing);
     }
-    // About section robot blink
-    const aboutStatic = document.querySelector('.about-robot-static');
-    const aboutBlink  = document.querySelector('.about-robot-blink');
-    function aboutRobotBlink() {
-      if (!aboutStatic || !aboutBlink) return;
-      aboutStatic.style.display = 'none';
-      aboutBlink.style.display  = 'block';
-      setTimeout(() => {
-        aboutStatic.style.display = 'block';
-        aboutBlink.style.display  = 'none';
-      }, 180);
-    }
-    function scheduleAboutBlink() {
-      setTimeout(() => {
-        aboutRobotBlink();
-        setTimeout(() => { aboutRobotBlink(); }, 300);
-        scheduleAboutBlink();
-      }, 2800 + Math.random() * 2000);
-    }
-    scheduleAboutBlink();
+    // About section robot blink — same pattern as hero
+    (function() {
+      var aboutWrap   = document.querySelector('.about-robot-inner');
+      var aboutNormal = document.querySelector('.about-robot-static');
+      var aboutBlink  = document.querySelector('.about-robot-blink');
+      if (!aboutNormal || !aboutBlink) return;
+
+      function showAboutState(state) {
+        aboutNormal.style.display = state === 'normal' ? 'block' : 'none';
+        aboutBlink.style.display  = state === 'blink'  ? 'block' : 'none';
+      }
+
+      function doAboutBlink() {
+        showAboutState('blink');
+        setTimeout(function() { showAboutState('normal'); }, 160);
+      }
+
+      function scheduleAboutBlink() {
+        setTimeout(function() {
+          doAboutBlink();
+          setTimeout(function() { doAboutBlink(); }, 320);
+          scheduleAboutBlink();
+        }, 2800 + Math.random() * 2000);
+      }
+      scheduleAboutBlink();
+    })();
   </script>
 
 </body>
