@@ -222,7 +222,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
-      transform: translateX(-50%) translateY(48%);
+      transform: translateX(-50%) translateY(55%);
       z-index: 20;
       width: 240px;
       will-change: transform;
@@ -235,7 +235,7 @@
     .robot-state { width: 240px; height: auto; display: block; }
     @keyframes robot-arrive {
       0%   { opacity: 0; transform: translateX(-50%) translateY(120%); }
-      100% { opacity: 1; transform: translateX(-50%) translateY(48%); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(55%); }
     }
 
     /* Scroll */
@@ -414,6 +414,7 @@
 
   <div class="angled-divider">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,-2 1440,-2 1440,70 0,70" fill="#ffffff"/>
       <polygon points="0,0 1440,46 1440,70 0,70" fill="#111008"/>
     </svg>
   </div>
@@ -462,7 +463,7 @@
         var vh   = window.innerHeight;
         var sink = Math.min(sy / (vh * 0.55), 1) * 210;
         wrap.style.animation = 'none';
-        var baseOffset = wrap.offsetHeight * 0.48; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
+        var baseOffset = wrap.offsetHeight * 0.55; wrap.style.transform = 'translateX(-50%) translateY(' + (baseOffset + sink) + 'px)';
         if (sy > 40 && !lookingDown) {
           lookingDown = true;
           showState('lookdown');
