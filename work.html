@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kaby | work</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nothing+You+Could+Do&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #ffffff;
+    --ink: #111008;
+    --grey: #666666;
+  }
+  nav {
+      background: #ffffff;
+      border-bottom: none;
+      box-shadow: 0 1px 0 #ffffff;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 52px;
+      background: #ffffff;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+</style>
+<style>
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #111008;
+    --cream: #ffffff;
+    --grey: #888888;
+    --light: #222220;
+  }
+  body { background: var(--ink); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+  /* WORK SECTION */
+  .work-section {
+    background: var(--ink);
+    min-height: 100vh;
+    padding: 100px 52px 160px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Section label */
+  .work-label {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 17px;
+    color: #555;
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-bottom: 80px;
+  }
+
+  /* Faint background marks */
+  .bg-mark {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.06;
+  }
+
+  /* Case study container — freeform */
+  .cases {
+    position: relative;
+    min-height: 1400px;
+  }
+
+  .case {
+    position: absolute;
+    width: 480px;
+  }
+
+  .case-1 { left: 2%;  top: 0px;    }
+  .case-2 { right: 3%; top: 160px;  }
+  .case-3 { left: 15%; top: 720px;  }
+
+  /* Hand-drawn visual box */
+  .case-visual {
+    width: 100%;
+    aspect-ratio: 2072/1566;
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .case-visual svg.frame {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+  .case-visual-inner {
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    background: #1a1a18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .case-visual-label {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 13px;
+    color: #bbb;
+    letter-spacing: 0.05em;
+  }
+
+  /* Case study text */
+  .case-body {
+    padding: 0 4px;
+  }
+  .case-tag {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 13px;
+    color: #555555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .case-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 300;
+    color: #e8e4dc;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .case-desc {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.9;
+    max-width: 360px;
+  }
+
+  /* Ink arrow SVG connecting copy to box */
+  .case-arrow {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  /* Individual case rotations — the wall feel */
+  .case-1 { transform: rotate(-1.5deg); }
+  .case-2 { transform: rotate(1.8deg); }
+  .case-3 { transform: rotate(-0.8deg); }
+
+  /* Scrawled connector lines between cases */
+  .connectors {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+
+  /* Fade in on scroll */
+  .case {
+    opacity: 0;
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .case.visible {
+    opacity: 1;
+  }
+  .case-1.visible { transform: rotate(-1.5deg) translateY(0); }
+  .case-2.visible { transform: rotate(1.8deg) translateY(0); }
+  .case-3.visible { transform: rotate(-0.8deg) translateY(0); }
+  .case-1 { transform: rotate(-1.5deg) translateY(30px); }
+  .case-2 { transform: rotate(1.8deg) translateY(30px); }
+  .case-3 { transform: rotate(-0.8deg) translateY(30px); }
+
+  /* Pin dot at top of each case - removed */
+
+
+  .work-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    gap: 32px;
+  }
+  .work-email {
+    display: inline-block;
+    transform: rotate(-3deg);
+    transition: opacity 0.2s;
+    color: #e8e4dc;
+  }
+  .work-email:hover { animation: jiggle 0.4s ease; }
+  @keyframes jiggle {
+    0%   { transform: rotate(-3deg) translateX(0); }
+    20%  { transform: rotate(3deg) translateX(-3px); }
+    40%  { transform: rotate(-4deg) translateX(3px); }
+    60%  { transform: rotate(3deg) translateX(-2px); }
+    80%  { transform: rotate(-2deg) translateX(2px); }
+    100% { transform: rotate(-3deg) translateX(0); }
+  }
+  .work-closing {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 18px;
+    color: #444;
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-top: 0;
+  }
+  @keyframes draw-box {
+    to { stroke-dashoffset: 0; }
+  }
+
+</style>
+</head>
+<body style="background:#111008;">
+
+<nav>
+    <a href="index.html" style="text-decoration:none;color:inherit;"><div class="nav-logo">kaby | portfolio</div></a>
+    <ul class="nav-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+<section class="work-section" id="work">
+
+  <!-- Background marks -->
+  <svg class="bg-mark" style="top:5%;left:60%;width:60px;" viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" stroke="#e8e4dc" stroke-width="1.5" fill="none"/></svg>
+  <svg class="bg-mark" style="top:22%;left:48%;width:40px;" viewBox="0 0 40 40"><line x1="4" y1="4" x2="36" y2="36" stroke="#e8e4dc" stroke-width="1.5"/><line x1="36" y1="4" x2="4" y2="36" stroke="#e8e4dc" stroke-width="1.5"/></svg>
+  <svg class="bg-mark" style="top:40%;right:2%;width:50px;" viewBox="0 0 50 50"><polygon points="25,4 46,46 4,46" stroke="#e8e4dc" stroke-width="1.5" fill="none"/></svg>
+  <svg class="bg-mark" style="top:60%;left:5%;width:44px;" viewBox="0 0 44 44"><rect x="4" y="4" width="36" height="36" stroke="#e8e4dc" stroke-width="1.5" fill="none"/></svg>
+  <svg class="bg-mark" style="bottom:15%;right:30%;width:36px;" viewBox="0 0 36 36"><line x1="4" y1="4" x2="32" y2="32" stroke="#e8e4dc" stroke-width="1.5"/><line x1="32" y1="4" x2="4" y2="32" stroke="#e8e4dc" stroke-width="1.5"/></svg>
+  <svg class="bg-mark" style="bottom:30%;left:40%;width:28px;" viewBox="0 0 28 28"><polygon points="14,2 26,26 2,26" stroke="#e8e4dc" stroke-width="1.5" fill="none"/></svg>
+
+  <span class="work-label">// work</span>
+
+  <div class="cases">
+
+    <!-- Connective ink lines between cases -->
+    <svg class="connectors" viewBox="0 0 1200 2200" preserveAspectRatio="none">
+      <!-- Line from case 1 to case 2 -->
+      <path d="M460,220 C600,280 700,300 820,420" stroke="#e8e4dc" stroke-width="1" fill="none" opacity="0.08"
+        stroke-dasharray="6 4" stroke-linecap="round"/>
+      <!-- Arrow from case 2 to case 3 -->
+      <path d="M900,700 C800,820 600,840 480,920" stroke="#e8e4dc" stroke-width="1" fill="none" opacity="0.08"
+        stroke-dasharray="6 4" stroke-linecap="round"/>
+      <!-- Small arrowhead -->
+      <polyline points="470,910 480,920 492,908" stroke="#e8e4dc" stroke-width="1" fill="none" opacity="0.1" stroke-linecap="round"/>
+      <polyline points="455,214 460,220 467,210" stroke="#e8e4dc" stroke-width="1" fill="none" opacity="0.1" stroke-linecap="round"/>
+    </svg>
+
+    <!-- CASE 1: Horseback -->
+    <div class="case case-1">
+      
+      <div class="case-visual">
+        <!-- Hand-drawn frame -->
+        <svg class="frame" viewBox="0 0 480 300" preserveAspectRatio="none">
+          <path d="M6,6 C160,4 320,3 474,6 C476,100 477,200 474,294 C320,297 160,298 6,294 C4,196 3,100 6,6 Z"
+            stroke="#e8e4dc" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.3s forwards;"/>
+        </svg>
+        <div class="case-visual-inner">
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="horseback.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-tag">// interactive · game · brand partnership</span>
+        <h2 class="case-title">Horseback</h2>
+        <p class="case-desc">A side-scrolling browser game built around Jenna Paulette's single, launched in tandem with her Justin Boots partnership and a live rodeo. Players rode for a chance to win a free pair of boots. Creative direction from concept through launch.</p>
+      </div>
+    </div>
+
+    <!-- CASE 2: Ice Nine Kills -->
+    <div class="case case-2">
+      
+      <div class="case-visual">
+        <svg class="frame" viewBox="0 0 480 300" preserveAspectRatio="none">
+          <path d="M6,6 C160,3 320,4 474,7 C477,100 476,200 473,294 C318,296 158,297 6,294 C4,198 3,98 6,6 Z"
+            stroke="#e8e4dc" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.6s forwards;"/>
+        </svg>
+        <div class="case-visual-inner">
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="iceninekills.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-tag">// web experience · 3D · entertainment</span>
+        <h2 class="case-title">The Theater</h2>
+        <p class="case-desc">Full band website built as a navigable 3D theater — snack bar, ticket booth, custom coming-soon posters, and a screening room for new releases. Launched alongside their Terrifier 3 partnership, with the latest visual redesign being in collaboration with the motion picture release of Scream 7. Creative direction on the full digital experience.</p>
+      </div>
+    </div>
+
+    <!-- CASE 3: OneRequest -->
+    <div class="case case-3">
+      
+      <div class="case-visual">
+        <svg class="frame" viewBox="0 0 480 300" preserveAspectRatio="none">
+          <path d="M5,7 C161,4 319,3 473,6 C476,101 477,199 474,293 C319,296 159,297 5,294 C3,197 2,99 5,7 Z"
+            stroke="#e8e4dc" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.9s forwards;"/>
+        </svg>
+        <div class="case-visual-inner">
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="onerequest.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-tag">// brand campaign · motion · copy</span>
+        <h2 class="case-title">It only takes OneRequest.</h2>
+        <p class="case-desc">Full brand takeover for an online car buying platform — original animated ad, extended how-it-works spot, photoshoot direction for static campaign. Wrote the tagline, the sub-tagline, and the CTA. All three went everywhere.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="work-footer">
+    <p class="work-closing">A small sampling. More available upon request.</p>
+    <a class="work-email" href="mailto:kaby615@gmail.com">
+      <svg width="64" height="48" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="5" width="58" height="38" rx="3" stroke="#e8e4dc" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="3,5 32,28 61,5" stroke="#e8e4dc" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<style>
+  .work-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    gap: 32px;
+  }
+  .work-email {
+    display: inline-block;
+    transform: rotate(-3deg);
+    transition: opacity 0.2s;
+    color: #e8e4dc;
+  }
+  .work-email:hover { animation: jiggle 0.4s ease; }
+  @keyframes jiggle {
+    0%   { transform: rotate(-3deg) translateX(0); }
+    20%  { transform: rotate(3deg) translateX(-3px); }
+    40%  { transform: rotate(-4deg) translateX(3px); }
+    60%  { transform: rotate(3deg) translateX(-2px); }
+    80%  { transform: rotate(-2deg) translateX(2px); }
+    100% { transform: rotate(-3deg) translateX(0); }
+  }
+  .work-closing {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 18px;
+    color: #444;
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-top: 0;
+  }
+  @keyframes draw-box {
+    to { stroke-dashoffset: 0; }
+  }
+</style>
+
+<script>
+  const cases = document.querySelectorAll('.case');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 150);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cases.forEach(c => obs.observe(c));
+
+  // Fallback — show all after 500ms
+  setTimeout(() => {
+    cases.forEach(c => c.classList.add('visible'));
+  }, 500);
+</script>
+
+</body>
+</html>
