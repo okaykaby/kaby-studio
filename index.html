@@ -38,6 +38,9 @@
 
     /* NAV */
     nav {
+      background: #ffffff;
+      border-bottom: none;
+      box-shadow: 0 1px 0 #ffffff;
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 500;
@@ -243,12 +246,12 @@
     /* Scroll */
     .hero-scroll {
       position: absolute;
-      bottom: 36px;
+      bottom: 90px;
       left: 52px;
       display: flex;
       align-items: center;
       gap: 10px;
-      z-index: 10;
+      z-index: 20;
       opacity: 0;
       animation: fade-in 1s ease 1.8s forwards;
       transform: rotate(-4deg);
@@ -265,7 +268,7 @@
     }
 
     /* DIVIDER */
-    .angled-divider { width: 100%; line-height: 0; margin-top: -70px; display: block; padding: 0; background: transparent; position: relative; z-index: 15; }
+    .angled-divider { position: absolute; bottom: 0; left: 0; width: 100%; line-height: 0; padding: 0; z-index: 15; }
     .angled-divider svg { display: block; width: 100%; margin: 0; padding: 0; }
 
     /* DARK SECTION */
@@ -412,18 +415,12 @@
       <span>scroll</span>
     </div>
 
-    <div class="hero-divider">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="0,20 1440,60 1440,80 0,80" fill="#111008"/>
-      </svg>
-    </div>
-  </section>
-
   <div class="angled-divider">
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="0,0 1440,46 1440,70 0,70" fill="#111008"/>
     </svg>
   </div>
+  </section>
 
   <section class="intro-section">
     <div class="intro-inner">
