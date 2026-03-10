@@ -274,9 +274,8 @@
     /* DARK SECTION */
     .intro-section {
       position: relative;
-      overflow: hidden;
       background: var(--ink);
-      padding: 110px 52px 110px;
+      padding: 110px 52px 60px;
       margin-top: -2px;
     }
     .intro-inner {
@@ -353,26 +352,13 @@
       width: 100%;
       line-height: 0;
       display: block;
-      background: #111008;
+      background: #ffffff;
       position: relative;
       z-index: 5;
+      margin-bottom: -2px;
     }
     .contact-divider svg { display: block; width: 100%; }
 
-    /* CONTACT ROBOT */
-    .contact-robot {
-      position: absolute;
-      bottom: 0;
-      right: 52px;
-      width: 240px;
-      z-index: 10;
-    }
-    .contact-robot-inner {
-      position: relative;
-      width: 240px;
-      transform: translateY(50%);
-    }
-    .contact-robot img { width: 240px; height: auto; display: block; }
 
     /* CONTACT SECTION */
     .contact-section {
@@ -410,10 +396,10 @@
     }
     .contact-sig {
       display: block;
-      width: 160px;
+      width: 80px;
       height: auto;
-      margin-left: 340px;
-      margin-bottom: 24px;
+      margin-left: 180px;
+      margin-bottom: 32px;
       transform: rotate(3deg);
       opacity: 0.85;
     }
@@ -590,14 +576,9 @@
     <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="0,70 1440,24 1440,0 0,0" fill="#111008"/>
     </svg>
-    <div class="contact-robot">
-      <div class="contact-robot-inner">
-        <img class="contact-robot-static" src="robot-static.png" alt="" style="width:240px;filter:opacity(0.9);display:block;"/>
-        <img class="contact-robot-blink" src="robot-blink.png" alt="" style="width:240px;filter:opacity(0.9);display:none;"/>
-      </div>
-    </div>
   </div>
   <section class="contact-section" id="contact">
+
     <div class="contact-inner">
       <p class="contact-intro">
         <span class="contact-intro-serif">Good work starts with good conversation, right?</span><br>
@@ -766,31 +747,7 @@
       scheduleAboutBlink();
     })();
 
-    // Contact section robot blink
-    (function() {
-      var contactNormal = document.querySelector('.contact-robot-static');
-      var contactBlink  = document.querySelector('.contact-robot-blink');
-      if (!contactNormal || !contactBlink) return;
 
-      function showContactState(state) {
-        contactNormal.style.display = state === 'normal' ? 'block' : 'none';
-        contactBlink.style.display  = state === 'blink'  ? 'block' : 'none';
-      }
-
-      function doContactBlink() {
-        showContactState('blink');
-        setTimeout(function() { showContactState('normal'); }, 160);
-      }
-
-      function scheduleContactBlink() {
-        setTimeout(function() {
-          doContactBlink();
-          setTimeout(function() { doContactBlink(); }, 320);
-          scheduleContactBlink();
-        }, 2800 + Math.random() * 2000);
-      }
-      scheduleContactBlink();
-    })();
 
   </script>
 </body>
