@@ -363,19 +363,27 @@
     /* CONTACT SECTION */
     .contact-section {
       background: #ffffff;
-      padding: 120px 52px 140px;
+      padding: 100px 52px 140px;
       position: relative;
       margin-top: -2px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
     }
     .contact-inner {
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .contact-intro {
       color: var(--ink);
-      line-height: 1.6;
-      max-width: 800px;
-      margin-bottom: 80px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 16px;
       display: block;
     }
     .contact-intro-serif {
@@ -383,40 +391,42 @@
       font-size: clamp(26px, 2.8vw, 42px);
       font-weight: 300;
       white-space: nowrap;
-      display: inline-block;
-      margin-bottom: 16px;
-      transform: rotate(-2deg);
+      display: block;
+      margin-bottom: 20px;
+      transform: rotate(-1deg);
+      transform-origin: left center;
     }
     .contact-intro-hand {
       font-family: "Nothing You Could Do", cursive;
       font-size: clamp(18px, 1.8vw, 26px);
-      display: inline-block;
-      transform: rotate(-3deg);
-      margin-top: 8px;
+      display: block;
+      transform: rotate(-2deg);
+      transform-origin: left center;
+      line-height: 1.8;
     }
     .contact-sig {
       display: block;
       width: 80px;
       height: auto;
-      margin-left: 180px;
-      margin-bottom: 32px;
+      align-self: center;
+      margin-left: 120px;
+      margin-top: 16px;
+      margin-bottom: 56px;
       transform: rotate(3deg);
       opacity: 0.85;
     }
     .contact-links {
-      position: relative;
-      height: 160px;
+      display: flex;
+      align-items: flex-end;
+      gap: 80px;
+      align-self: center;
     }
     .contact-link {
-      position: absolute;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
       color: var(--ink);
-      font-family: "Nothing You Could Do", cursive;
-      font-size: 15px;
       transition: opacity 0.2s;
     }
     .contact-link:hover { animation: jiggle 0.4s ease; }
@@ -428,12 +438,10 @@
       80%  { transform: rotate(calc(var(--base-rot, 0deg) - 3deg)) translateX(2px); }
       100% { transform: rotate(var(--base-rot, 0deg)) translateX(0); }
     }
-    .contact-link svg {
-      display: block;
-    }
-    .contact-link-email  { left: 0;    top: 10px;  transform: rotate(-4deg); --base-rot: -4deg; }
-    .contact-link-linkedin { left: 220px; top: 30px; transform: rotate(2deg); --base-rot: 2deg; }
-    .contact-link-resume { left: 430px; top: 0px;  transform: rotate(-2deg); --base-rot: -2deg; }
+    .contact-link svg { display: block; }
+    .contact-link-email    { transform: rotate(-4deg); --base-rot: -4deg; }
+    .contact-link-linkedin { transform: rotate(2deg);  --base-rot: 2deg; margin-bottom: -10px; }
+    .contact-link-resume   { transform: rotate(-2deg); --base-rot: -2deg; }
     @keyframes draw-icon {
       to { stroke-dashoffset: 0; }
     }
@@ -578,6 +586,14 @@
     </svg>
   </div>
   <section class="contact-section" id="contact">
+
+    <!-- Background marks -->
+    <svg class="mark" style="top:12%; left:6%;" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" stroke="#111008" stroke-width="1" opacity="0.12" fill="none"/></svg>
+    <svg class="mark" style="top:8%; right:12%;" width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="4" y1="4" x2="24" y2="24" stroke="#111008" stroke-width="1" opacity="0.1"/><line x1="24" y1="4" x2="4" y2="24" stroke="#111008" stroke-width="1" opacity="0.1"/></svg>
+    <svg class="mark" style="top:55%; left:3%;" width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,3 21,21 3,21" stroke="#111008" stroke-width="1" opacity="0.1" fill="none"/></svg>
+    <svg class="mark" style="bottom:20%; right:8%;" width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="4" width="28" height="28" stroke="#111008" stroke-width="1" opacity="0.08" fill="none"/></svg>
+    <svg class="mark" style="bottom:35%; left:55%;" width="22" height="22" viewBox="0 0 22 22" fill="none"><line x1="3" y1="3" x2="19" y2="19" stroke="#111008" stroke-width="1" opacity="0.1"/><line x1="19" y1="3" x2="3" y2="19" stroke="#111008" stroke-width="1" opacity="0.1"/></svg>
+    <svg class="mark" style="top:30%; right:5%;" width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="10,2 18,18 2,18" stroke="#111008" stroke-width="1" opacity="0.09" fill="none"/></svg>
 
     <div class="contact-inner">
       <p class="contact-intro">
