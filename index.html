@@ -18,9 +18,12 @@
 
     html { scroll-behavior: smooth; }
     body {
-      background: var(--cream);
+      background: var(--ink);
       color: var(--ink);
       overflow-x: hidden;
+    }
+    .hero {
+      background: var(--cream);
     }
 
     body::before {
@@ -68,7 +71,6 @@
       position: relative;
       min-height: 100vh;
       overflow: hidden;
-      clip-path: inset(0);
       margin-bottom: 0;
       padding-bottom: 0;
     }
@@ -223,7 +225,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%) translateY(55%);
-      z-index: 20;
+      z-index: 8;
       width: 240px;
       will-change: transform;
       animation: robot-arrive 0.9s ease 1.4s both;
@@ -263,7 +265,7 @@
     }
 
     /* DIVIDER */
-    .angled-divider { width: 100%; line-height: 0; margin-top: -2px; display: block; padding: 0; }
+    .angled-divider { width: 100%; line-height: 0; margin-top: -70px; display: block; padding: 0; background: transparent; position: relative; z-index: 15; }
     .angled-divider svg { display: block; width: 100%; margin: 0; padding: 0; }
 
     /* DARK SECTION */
@@ -410,6 +412,11 @@
       <span>scroll</span>
     </div>
 
+    <div class="hero-divider">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,20 1440,60 1440,80 0,80" fill="#111008"/>
+      </svg>
+    </div>
   </section>
 
   <div class="angled-divider">
