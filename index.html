@@ -217,16 +217,22 @@
     /* ── ROBOT ── */
     .robot-wrap {
       position: absolute;
-      bottom: -24px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       z-index: 20;
-      width: 180px;
+      width: 212px;
       will-change: transform;
       animation: robot-arrive 0.9s ease 1.4s both;
+      overflow: hidden;
+      height: 212px;
     }
-    .robot-img-wrap { position: relative; width: 180px; }
-    .robot-state { width: 180px; height: auto; display: block; }
+    .robot-img-wrap {
+      position: absolute;
+      bottom: 0;
+      width: 212px;
+    }
+    .robot-state { width: 212px; height: auto; display: block; }
     @keyframes robot-arrive {
       0%   { opacity: 0; transform: translateX(-50%) translateY(30px); }
       70%  { transform: translateX(-50%) translateY(-8px); }
