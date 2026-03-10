@@ -347,6 +347,110 @@
       height: auto;
       display: block;
     }
+
+    /* CONTACT DIVIDER */
+    .contact-divider {
+      width: 100%;
+      line-height: 0;
+      display: block;
+      background: #111008;
+      position: relative;
+      z-index: 5;
+    }
+    .contact-divider svg { display: block; width: 100%; }
+
+    /* CONTACT ROBOT */
+    .contact-robot {
+      position: absolute;
+      bottom: 0;
+      right: 52px;
+      width: 240px;
+      z-index: 10;
+    }
+    .contact-robot-inner {
+      position: relative;
+      width: 240px;
+      transform: translateY(50%);
+    }
+    .contact-robot img { width: 240px; height: auto; display: block; }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      background: #ffffff;
+      padding: 120px 52px 140px;
+      position: relative;
+      margin-top: -2px;
+    }
+    .contact-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .contact-intro {
+      color: var(--ink);
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 80px;
+      display: block;
+    }
+    .contact-intro-serif {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(26px, 2.8vw, 42px);
+      font-weight: 300;
+      white-space: nowrap;
+      display: inline-block;
+      margin-bottom: 16px;
+      transform: rotate(-2deg);
+    }
+    .contact-intro-hand {
+      font-family: "Nothing You Could Do", cursive;
+      font-size: clamp(18px, 1.8vw, 26px);
+      display: inline-block;
+      transform: rotate(-3deg);
+      margin-top: 8px;
+    }
+    .contact-sig {
+      display: block;
+      width: 160px;
+      height: auto;
+      margin-left: 340px;
+      margin-bottom: 24px;
+      transform: rotate(3deg);
+      opacity: 0.85;
+    }
+    .contact-links {
+      position: relative;
+      height: 160px;
+    }
+    .contact-link {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-family: "Nothing You Could Do", cursive;
+      font-size: 15px;
+      transition: opacity 0.2s;
+    }
+    .contact-link:hover { animation: jiggle 0.4s ease; }
+    @keyframes jiggle {
+      0%   { transform: rotate(var(--base-rot, 0deg)) translateX(0); }
+      20%  { transform: rotate(calc(var(--base-rot, 0deg) + 6deg)) translateX(-3px); }
+      40%  { transform: rotate(calc(var(--base-rot, 0deg) - 5deg)) translateX(3px); }
+      60%  { transform: rotate(calc(var(--base-rot, 0deg) + 4deg)) translateX(-2px); }
+      80%  { transform: rotate(calc(var(--base-rot, 0deg) - 3deg)) translateX(2px); }
+      100% { transform: rotate(var(--base-rot, 0deg)) translateX(0); }
+    }
+    .contact-link svg {
+      display: block;
+    }
+    .contact-link-email  { left: 0;    top: 10px;  transform: rotate(-4deg); --base-rot: -4deg; }
+    .contact-link-linkedin { left: 220px; top: 30px; transform: rotate(2deg); --base-rot: 2deg; }
+    .contact-link-resume { left: 430px; top: 0px;  transform: rotate(-2deg); --base-rot: -2deg; }
+    @keyframes draw-icon {
+      to { stroke-dashoffset: 0; }
+    }
     @keyframes fade-in {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -481,7 +585,71 @@
   </div>
   </section>
 
-  <script>
+
+  <div class="contact-divider">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,70 1440,24 1440,0 0,0" fill="#111008"/>
+    </svg>
+    <div class="contact-robot">
+      <div class="contact-robot-inner">
+        <img class="contact-robot-static" src="robot-static.png" alt="" style="width:240px;filter:opacity(0.9);display:block;"/>
+        <img class="contact-robot-blink" src="robot-blink.png" alt="" style="width:240px;filter:opacity(0.9);display:none;"/>
+      </div>
+    </div>
+  </div>
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="contact-intro">
+        <span class="contact-intro-serif">Good work starts with good conversation, right?</span><br>
+        <span class="contact-intro-hand">Whether it's something new, or something that already exists,<br>I'd love to chat about it.</span>
+      </p>
+      <img class="contact-sig" src="kaby-signature.png" alt="Kaby" />
+      <div class="contact-links">
+
+        <!-- Email -->
+        <a class="contact-link contact-link-email" href="/cdn-cgi/l/email-protection#fc979d9e85cacdc9bc9b919d9590d29f9391">
+          <svg width="64" height="48" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="58" height="38" rx="3" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              style="stroke-dasharray:200; stroke-dashoffset:200; animation: draw-icon 1.2s ease 0.2s forwards;"/>
+            <polyline points="3,5 32,28 61,5" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              style="stroke-dasharray:80; stroke-dashoffset:80; animation: draw-icon 0.8s ease 0.8s forwards;"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a class="contact-link contact-link-linkedin" href="https://linkedin.com/in/kaby-gilley-6a75331b2" target="_blank">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="42" height="42" rx="6" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round"
+              style="stroke-dasharray:180; stroke-dashoffset:180; animation: draw-icon 1s ease 0.4s forwards;"/>
+            <line x1="14" y1="20" x2="14" y2="36" stroke="#111008" stroke-width="1.8" stroke-linecap="round"
+              style="stroke-dasharray:20; stroke-dashoffset:20; animation: draw-icon 0.4s ease 1s forwards;"/>
+            <circle cx="14" cy="14" r="2.5" stroke="#111008" stroke-width="1.8" fill="none"
+              style="stroke-dasharray:20; stroke-dashoffset:20; animation: draw-icon 0.4s ease 1.1s forwards;"/>
+            <path d="M22,20 L22,36 M22,25 C22,20 34,18 34,25 L34,36" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              style="stroke-dasharray:60; stroke-dashoffset:60; animation: draw-icon 0.8s ease 1.2s forwards;"/>
+          </svg>
+        </a>
+
+        <!-- Resume -->
+        <a class="contact-link contact-link-resume" href="#" target="_blank">
+          <svg width="48" height="58" viewBox="0 0 48 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6,3 L34,3 L45,14 L45,55 L6,55 Z" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              style="stroke-dasharray:220; stroke-dashoffset:220; animation: draw-icon 1.2s ease 0.3s forwards;"/>
+            <polyline points="34,3 34,14 45,14" stroke="#111008" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              style="stroke-dasharray:40; stroke-dashoffset:40; animation: draw-icon 0.5s ease 1s forwards;"/>
+            <line x1="14" y1="24" x2="36" y2="24" stroke="#111008" stroke-width="1.5" stroke-linecap="round"
+              style="stroke-dasharray:25; stroke-dashoffset:25; animation: draw-icon 0.4s ease 1.3s forwards;"/>
+            <line x1="14" y1="32" x2="36" y2="32" stroke="#111008" stroke-width="1.5" stroke-linecap="round"
+              style="stroke-dasharray:25; stroke-dashoffset:25; animation: draw-icon 0.4s ease 1.4s forwards;"/>
+            <line x1="14" y1="40" x2="28" y2="40" stroke="#111008" stroke-width="1.5" stroke-linecap="round"
+              style="stroke-dasharray:18; stroke-dashoffset:18; animation: draw-icon 0.3s ease 1.5s forwards;"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
     // Robot blink + scroll behavior
     (function() {
@@ -597,7 +765,33 @@
       }
       scheduleAboutBlink();
     })();
-  </script>
 
+    // Contact section robot blink
+    (function() {
+      var contactNormal = document.querySelector('.contact-robot-static');
+      var contactBlink  = document.querySelector('.contact-robot-blink');
+      if (!contactNormal || !contactBlink) return;
+
+      function showContactState(state) {
+        contactNormal.style.display = state === 'normal' ? 'block' : 'none';
+        contactBlink.style.display  = state === 'blink'  ? 'block' : 'none';
+      }
+
+      function doContactBlink() {
+        showContactState('blink');
+        setTimeout(function() { showContactState('normal'); }, 160);
+      }
+
+      function scheduleContactBlink() {
+        setTimeout(function() {
+          doContactBlink();
+          setTimeout(function() { doContactBlink(); }, 320);
+          scheduleContactBlink();
+        }, 2800 + Math.random() * 2000);
+      }
+      scheduleContactBlink();
+    })();
+
+  </script>
 </body>
 </html>
