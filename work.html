@@ -13,7 +13,7 @@
     --grey: #666666;
   }
   nav {
-      background: #ffffff;
+      background: #111008;
       border-bottom: none;
       box-shadow: 0 1px 0 #ffffff;
       position: fixed;
@@ -30,7 +30,7 @@
       font-size: 20px;
       font-weight: 300;
       letter-spacing: 0.1em;
-      color: var(--ink);
+      color: #e8e4dc;
     }
     .nav-links { display: flex; gap: 48px; list-style: none; }
     .nav-links a {
@@ -38,7 +38,8 @@
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink-light);
+      color: #666;
+      .nav-links a:hover { color: #e8e4dc; }
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -217,6 +218,7 @@
     transform: rotate(-2deg);
     display: inline-block;
     margin-top: 0;
+    white-space: nowrap;
   }
   @keyframes draw-box {
     to { stroke-dashoffset: 0; }
