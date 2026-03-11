@@ -222,6 +222,38 @@
     to { stroke-dashoffset: 0; }
   }
 
+/* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-logo { font-size: 17px; }
+    .nav-links { gap: 24px; }
+    .nav-links a { font-size: 10px; }
+
+    .work-section { padding: 90px 24px 100px; }
+    .work-label { margin-bottom: 48px; font-size: 15px; }
+
+    .cases {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      min-height: auto;
+    }
+
+    .case {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .connectors { display: none; }
+    .case-title { font-size: clamp(26px, 7vw, 38px); }
+    .case-desc { font-size: 14px; max-width: 100%; }
+    .work-footer { margin-top: 60px; }
+    .work-closing { font-size: 16px; }
+  }
 </style>
 </head>
 <body style="background:#111008;">
