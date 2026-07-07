@@ -87,7 +87,7 @@
   /* Case study container — freeform */
   .cases {
     position: relative;
-    min-height: 1800px;
+    min-height: 2100px;
   }
 
   .case {
@@ -99,6 +99,7 @@
   .case-2 { right: 3%; top: 160px;  }
   .case-3 { left: 15%; top: 720px;  }
   .case-4 { right: 5%; top: 940px;  }
+  .case-5 { left: 8%;  top: 1160px; }
 
   /* Hand-drawn visual box */
   .case-visual {
@@ -166,6 +167,7 @@
   .case-2 { transform: rotate(1.8deg); }
   .case-3 { transform: rotate(-0.8deg); }
   .case-4 { transform: rotate(1.2deg); }
+  .case-5 { transform: rotate(-1.3deg); }
 
   /* Scrawled connector lines between cases */
   .connectors {
@@ -187,10 +189,12 @@
   .case-2.visible { transform: rotate(1.8deg) translateY(0); }
   .case-3.visible { transform: rotate(-0.8deg) translateY(0); }
   .case-4.visible { transform: rotate(1.2deg) translateY(0); }
+  .case-5.visible { transform: rotate(-1.3deg) translateY(0); }
   .case-1 { transform: rotate(-1.5deg) translateY(30px); }
   .case-2 { transform: rotate(1.8deg) translateY(30px); }
   .case-3 { transform: rotate(-0.8deg) translateY(30px); }
   .case-4 { transform: rotate(1.2deg) translateY(30px); }
+  .case-5 { transform: rotate(-1.3deg) translateY(30px); }
 
   /* Pin dot at top of each case - removed */
 
@@ -267,11 +271,11 @@
 <body style="background:#111008;">
 
 <nav>
-    <a href="/" style="text-decoration:none;color:inherit;"><div class="nav-logo">kaby | portfolio</div></a>
+    <a href="index.html" style="text-decoration:none;color:inherit;"><div class="nav-logo">kaby | portfolio</div></a>
     <ul class="nav-links">
-      <li><a href="/work">Work</a></li>
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#contact">Contact</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -313,7 +317,7 @@
             style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.3s forwards;"/>
         </svg>
         <div class="case-visual-inner">
-          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="/horseback.mp4" type="video/mp4"></video>
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="horseback.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="case-body">
@@ -332,7 +336,7 @@
         style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.6s forwards;"/>
     </svg>
     <div class="case-visual-inner">
-      <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="/chaseatlantic.mp4" type="video/mp4"></video>
+      <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="chaseatlantic.mp4" type="video/mp4"></video>
     </div>
   </div>
   <div class="case-body">
@@ -352,7 +356,7 @@
             style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.9s forwards;"/>
         </svg>
         <div class="case-visual-inner">
-          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="/onerequest.mp4" type="video/mp4"></video>
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="onerequest.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="case-body">
@@ -372,13 +376,33 @@
             style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 0.6s forwards;"/>
         </svg>
         <div class="case-visual-inner">
-          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="/iceninekills.mp4" type="video/mp4"></video>
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="iceninekills.mp4" type="video/mp4"></video>
         </div>
       </div>
       <div class="case-body">
         <span class="case-tag">// web experience · 3D · entertainment</span>
         <h2 class="case-title">The Theater</h2>
         <p class="case-desc">Full band website built as a navigable 3D theater — snack bar, ticket booth, custom coming-soon posters, and a screening room for new releases. Launched alongside their Terrifier 3 partnership, with the latest visual redesign being in collaboration with the motion picture release of Scream 7. Creative direction on the full digital experience.</p>
+      </div>
+    </div>
+
+    <!-- CASE 5: Take It Like A Man -->
+    <div class="case case-5">
+
+      <div class="case-visual">
+        <svg class="frame" viewBox="0 0 480 300" preserveAspectRatio="none">
+          <path d="M6,6 C160,4 320,3 474,6 C476,100 477,200 474,294 C320,297 160,298 6,294 C4,196 3,100 6,6 Z"
+            stroke="#e8e4dc" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+            style="stroke-dasharray:1560; stroke-dashoffset:1560; animation: draw-box 2s ease 1.2s forwards;"/>
+        </svg>
+        <div class="case-visual-inner">
+          <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"><source src="tilam.mp4" type="video/mp4"></video>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-tag">// art book · photo edit · print design</span>
+        <h2 class="case-title">Take It Like A Man</h2>
+        <p class="case-desc">An 80-page art book for Amanda Shires' 2022 album, edited down from 300+ photographs spanning studio and location shoots, with full layout, cover, and print direction.</p>
       </div>
     </div>
 
