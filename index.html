@@ -54,7 +54,7 @@ body:not([data-view=home]):not([data-view=about]) .ab,body[data-view=contact] .m
 @media (prefers-reduced-motion:reduce){*,*::before{transition-duration:.01ms!important;transition-delay:0s!important}}
 
 /* ===== MOBILE (portrait phones) ===== */
-:root{--mc:7.94vw;--mhh:calc(var(--mc)*6);--mbar:1.3vw;--sq:11.8vw;--T:max(37.5vw,calc((100dvh - var(--mhh) - var(--sq) - 4*var(--mbar))/3));--hs:calc(100dvh - var(--mhh) - 3*var(--mbar) - var(--T))}
+:root{--mc:7.94vw;--mhh:calc(var(--mc)*6);--mbar:1.3vw;--sq:11.8vw;--T:max(37.5vw,calc((100dvh - var(--mhh) - var(--sq) - 4*var(--mbar))/3));--hs:calc(100dvh - var(--mhh) - 3*var(--mbar) - var(--T));--ha:calc(100dvh - var(--mhh) - 3*var(--mbar))}
 .mob{display:none}
 @media (max-width:800px){
 html,body{height:auto;overflow-y:auto}
@@ -70,17 +70,19 @@ body:not([data-view=home]) .mob{height:100dvh;overflow:hidden}
 body[data-view=contact] .mmail{opacity:0;pointer-events:none}
 .mlow{position:relative;flex:1;display:flex;flex-direction:column}
 .mband{position:relative;height:var(--sq);flex:none;overflow:hidden;background:#fff;transition:height .6s var(--ease)}
-body[data-view=about] .mband{height:var(--hs);transition-delay:.5s}
+body[data-view=about] .mband{height:var(--ha);transition-delay:.5s}
 body[data-view=contact] .mband{height:var(--hs)}
 .mab{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:flex-end;gap:.9vw;padding-right:calc(var(--sq) + 2.8vw);background:none;border:0;cursor:pointer;color:#000;font:800 4.7vw/1 var(--f);text-transform:uppercase;transition:opacity .3s}
 .mab svg{width:8.4vw}
 body[data-view=about] .mab,body[data-view=contact] .mab{opacity:0;pointer-events:none}
-.mpa{position:absolute;right:0;top:0;bottom:0;width:var(--sq);background:var(--mag);z-index:2;pointer-events:none;transition:width .5s var(--ease) .6s}
+.mpa{position:absolute;right:0;top:0;bottom:0;width:var(--sq);background:var(--mag);z-index:2;pointer-events:none;transition:width .5s var(--ease) .6s,opacity .3s}
+body[data-view=contact] .mpa{opacity:0}
 body[data-view=about] .mpa{width:100%;transition-delay:0s;pointer-events:auto}
 .mpa .t,.mc{height:100%;overflow-y:auto;padding:6.7vw 5.3vw 14vw;opacity:0;transition:opacity .2s}
 body[data-view=about] .mpa .t{opacity:1;transition:opacity .4s 1.1s}
 .mc{position:absolute;inset:0;z-index:3;pointer-events:none}
 body[data-view=contact] .mc{opacity:1;pointer-events:auto;transition:opacity .4s .4s}
+.mob br{display:none}
 .mob h2{font:700 clamp(24px,5.4vw,56px)/1 var(--f)}
 .mob h3{font:500 clamp(14px,3vw,30px)/1.2 var(--f);margin-top:1vw}
 .mob p{font:400 clamp(14px,3.6vw,30px)/1.22 var(--f);max-width:none;margin-top:3.2vw}
@@ -136,11 +138,11 @@ const S=[
 ['portal','The Portal','chaseatlantic','Fan ecosystem / Web / Music',['Fan ecosystem built for Chase Atlantic, with Discord bot integration, XP rewards, release-based challenges, 3D components, and digital unlockables tied to vinyl drops. Led concept development and client partnership from initial pitch through a two-year build. 13,000+ signups at launch.'],C.g],
 ['tilam','Take It Like A Man','tilam','Art book / Photo edit / Print design',['An 80-page art book for Amanda Shires’ 2022 album, edited down from 300+ photographs spanning studio and location shoots, with full layout, cover, and print direction.'],C.k,'#fff'],
 ['horseback','Horseback','horseback','Game / Interactive / Brand partnership',['A side-scrolling browser game built around Jenna Paulette’s single, launched in tandem with her Justin Boots partnership and a live rodeo. Players rode for a chance to win a free pair of boots.','Creative direction from concept through launch.'],C.b],
-['theater','The Theater','iceninekills','Web experience / 3D / Entertainment',['Full band website built as a navigable 3D theater, with a snack bar, ticket booth, custom coming-soon posters, and a screening room for new releases. Launched alongside their Terrifier 3 partnership, with the latest visual redesign in collaboration with the motion picture release of Scream 7.','Creative direction on the full digital experience.'],C.r],
+['theater','The Theater','iceninekills','Web experience / 3D / Entertainment',['Full band website built as a navigable 3D theater, with a snack bar, ticket booth, custom coming-soon posters, and a screening room for new releases. Launched alongside their Terrifier&nbsp;3 partnership, with the latest visual redesign in collaboration with the motion picture release of Scream&nbsp;7.','Creative direction on the full digital experience.'],C.r],
 ['onerequest','OneRequest','onerequest','Brand campaign / Motion / Copy',['Full brand takeover for an online car buying platform: original animated ad, extended how-it-works spot, and photoshoot direction for the static campaign. Wrote the tagline, the sub-tagline, and the CTA. All three went everywhere.'],C.y]
 ];
 S.forEach(([id,t,v,tag,ps,c,tc])=>{
-  strip.insertAdjacentHTML('beforeend',`<button class="tile" data-go="${id}" style="--c:${c};--t:${tc||'#000'}" aria-label="${t}"><video src="assets/videos/${v}.mp4" autoplay loop muted playsinline></video><span class="lab">${t}</span></button>`);
+  strip.insertAdjacentHTML('beforeend',`<button class="tile" data-go="${id}" style="--c:${c};--t:${tc||'#000'}" aria-label="${t}"><video src="assets/videos/${v}.mp4#t=0.001" preload="metadata" muted playsinline></video><span class="lab">${t}</span></button>`);
   main.insertAdjacentHTML('beforeend',`<section class="panel case" id="p-${id}"><video data-src="assets/videos/${v}.mp4" loop muted playsinline></video><div class="txt"><h2>${t}</h2><h3>${tag.replace(/\d+/g,"<span class=n>$&</span>")}</h3>${ps.map(p=>`<p>${p}</p>`).join('')}</div></section>`);
 });
 main.insertAdjacentHTML('beforeend',`<section class="panel pa" id="p-about"><div class="t"><h2>About</h2><h3>Bridging digital to physical</h3><p>Southern-raised NYC creative who came up making music and directing music videos, which gave me something most creative careers don’t start with: a real understanding of what the full arc of creative work actually feels like. That foundation never left.</p><p>I’ve spent years leading campaign direction for clients across entertainment, music, and digital media, building brand worlds and storytelling frameworks that had to work across channels, audiences, and stakeholders simultaneously. I specialize in protecting tone and continuity across complex creative environments, and I’m equally comfortable leading a concepting session, selling an idea to a skeptical client, or getting into the weeds with a team to make sure the execution lands the way the concept intended.</p></div></section>
@@ -151,8 +153,8 @@ const mlow=document.querySelector('.mlow'),mt=document.querySelector('.mtiles');
 document.querySelector('.mpa .t').innerHTML=document.querySelector('#p-about .t').innerHTML;
 document.querySelector('.mc').innerHTML=document.getElementById('p-contact').innerHTML;
 S.forEach(([id,t,v,,,c],i)=>{
-  mt.insertAdjacentHTML('beforeend',`<button class="mt" data-go="${id}" aria-label="${t}"><video src="assets/videos/${v}.mp4" autoplay loop muted playsinline></video></button>`);
-  mlow.insertAdjacentHTML('beforeend',`<section class="mp" id="m-${id}" style="--k:${i%2};--r:${i>>1};--c:${c}"><div class="in"><video data-src="assets/videos/${v}.mp4" loop muted playsinline></video>${document.querySelector('#p-'+id+' .txt').innerHTML}</div><button class="ctl mx" data-go="" aria-label="Close">${XS}</button></section>`);
+  mt.insertAdjacentHTML('beforeend',`<button class="mt" data-go="${id}" aria-label="${t}"><video src="assets/videos/${v}.mp4#t=0.001" preload="metadata" muted playsinline></video></button>`);
+  mlow.insertAdjacentHTML('beforeend',`<section class="mp" id="m-${id}" style="--k:${i%2};--r:${i>>1};--c:${id==='onerequest'?C.g:c}"><div class="in"><video data-src="assets/videos/${v}.mp4" loop muted playsinline></video>${document.querySelector('#p-'+id+' .txt').innerHTML}</div><button class="ctl mx" data-go="" aria-label="Close">${XS}</button></section>`);
 });
 mt.insertAdjacentHTML('beforeend','<button class="mt y" data-go="bridging">Bridging digital to physical</button>');
 mlow.insertAdjacentHTML('beforeend',`<section class="mp y" id="m-bridging" style="--k:1;--r:2;--c:#f3eb15;--o:calc(var(--sq) + var(--mbar))"><div class="in">${document.querySelector('#p-about .t').innerHTML}</div><button class="ctl mx" data-go="" aria-label="Close">${XS}</button></section>`);
@@ -167,13 +169,11 @@ function render(){
     const m=p.querySelector('video');
     if(m){if(on){if(!m.src)m.src=m.dataset.src;m.play().catch(()=>{})}else m.pause()}
   });
-  document.querySelectorAll('.tile').forEach(t=>{
-    const on=t.dataset.go===v,m=t.firstElementChild;
-    t.classList.toggle('on',on);on?m.pause():m.play().catch(()=>{});
-  });
-  document.querySelectorAll('.mt video').forEach(m=>COV.includes(v)?m.pause():m.play().catch(()=>{}));
+  document.querySelectorAll('.tile').forEach(t=>t.classList.toggle('on',t.dataset.go===v));
   if(v!=='home')scrollTo(0,0);
 }
+const warm=e=>{const b=e.target.closest('.tile,.mt');if(!b||!b.dataset.go)return;document.querySelectorAll((MQ.matches?'#m-':'#p-')+b.dataset.go+' video').forEach(m=>{if(!m.src){m.preload='auto';m.src=m.dataset.src}})};
+['pointerover','touchstart','focusin'].forEach(t=>document.addEventListener(t,warm,{capture:true,passive:true}));
 document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)location.hash=b.dataset.go});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')location.hash=''});
 addEventListener('hashchange',render);MQ.addEventListener('change',render);render();
