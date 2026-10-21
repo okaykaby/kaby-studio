@@ -82,7 +82,6 @@ body[data-view=about] .mpa{width:100%;transition-delay:0s;pointer-events:auto}
 body[data-view=about] .mpa .t{opacity:1;transition:opacity .4s 1.1s}
 .mc{position:absolute;inset:0;z-index:3;pointer-events:none}
 body[data-view=contact] .mc{opacity:1;pointer-events:auto;transition:opacity .4s .4s}
-.mob br{display:none}
 .mob h2{font:700 clamp(24px,5.4vw,56px)/1 var(--f)}
 .mob h3{font:500 clamp(14px,3vw,30px)/1.2 var(--f);margin-top:1vw}
 .mob p{font:400 clamp(14px,3.6vw,30px)/1.22 var(--f);max-width:none;margin-top:3.2vw}
@@ -151,7 +150,7 @@ const XS='<svg viewBox="0 0 40 40" fill="none" stroke="#000" stroke-width="9"><p
 const mlow=document.querySelector('.mlow'),mt=document.querySelector('.mtiles');
 [...'mwggkkyykybbbwykbr'].forEach(c=>{const d=document.createElement('div');d.style.background=C[c];document.querySelector('.mblocks').append(d)});
 document.querySelector('.mpa .t').innerHTML=document.querySelector('#p-about .t').innerHTML;
-document.querySelector('.mc').innerHTML=document.getElementById('p-contact').innerHTML;
+document.querySelector('.mc').innerHTML=document.getElementById('p-contact').innerHTML.replace('<br>',' ');
 S.forEach(([id,t,v,,,c],i)=>{
   mt.insertAdjacentHTML('beforeend',`<button class="mt" data-go="${id}" aria-label="${t}"><img src="assets/stills/${v}.jpg" alt=""></button>`);
   mlow.insertAdjacentHTML('beforeend',`<section class="mp" id="m-${id}" style="--k:${i%2};--r:${i>>1};--c:${id==='onerequest'?C.g:c}"><div class="in"><video data-src="assets/videos/${v}.mp4" poster="assets/stills/${v}.jpg" loop muted playsinline></video>${document.querySelector('#p-'+id+' .txt').innerHTML}</div><button class="ctl mx" data-go="" aria-label="Close">${XS}</button></section>`);
