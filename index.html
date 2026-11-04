@@ -39,7 +39,7 @@ p{margin-top:2.4vw;max-width:34.5vw}p+p{margin-top:1.2vw}
 .ctl svg{display:block;width:100%}
 .mail{top:1vw;right:1.2vw;width:3.7vw}
 .x{bottom:1.1vw;right:1.1vw;width:1.9vw;opacity:0;pointer-events:none}
-.ab{z-index:2;transition:transform .7s var(--ease),opacity .3s,visibility 0s;right:0;bottom:0;height:var(--cell);padding-right:var(--cell);display:flex;align-items:center;gap:.7vw;text-transform:uppercase;font:800 clamp(22px,3vw,80px)/1 var(--f)}
+.ab{z-index:2;transition:transform .7s var(--ease),opacity .3s,visibility 0s;right:0;bottom:0;height:var(--cell);padding-right:calc(var(--cell) + 1.6vw);display:flex;align-items:center;gap:.7vw;text-transform:uppercase;font:800 clamp(22px,3vw,80px)/1 var(--f)}
 .ab svg{width:4.7vw;margin-right:.7vw}
 body:not([data-view=home]) .x{opacity:1;pointer-events:auto}
 body[data-view=about] .ab{transform:translateX(calc(100% - var(--cell)));visibility:hidden;pointer-events:none;transition:transform .7s var(--ease),opacity .3s,visibility 0s .7s}
@@ -112,8 +112,7 @@ body[data-view=about] .mband>.mx,body[data-view=contact] .mband>.mx{opacity:1;po
 <main class="stage">
   <div class="blocks" aria-hidden="true"></div>
   <div class="main"><img class="name" src="assets/kaby.png" alt="Kaby"></div>
-  <button class="ctl ab" data-go="about" aria-label="About">About
-    <svg viewBox="0 0 121 40" aria-hidden="true"><path d="M0 20H92" stroke="#000" stroke-width="14"/><path d="M80 0 121 20 80 40z"/></svg></button>
+  <button class="ctl ab" data-go="about" aria-label="About">About</button>
   <button class="ctl mail" data-go="contact" aria-label="Contact"><img src="assets/mailbutton.svg" alt="" style="display:block;width:100%"></button>
   <button class="ctl x" data-go="" aria-label="Close"><svg viewBox="0 0 40 40" fill="none" stroke="#000" stroke-width="9"><path d="M5 5 35 35M35 5 5 35"/></svg></button>
 </main>
@@ -124,7 +123,7 @@ body[data-view=about] .mband>.mx,body[data-view=contact] .mband>.mx{opacity:1;po
 <header class="mhero"><div class="mblocks" aria-hidden="true"></div><div class="mnw"><img class="mn" src="assets/kaby.png" alt="Kaby"></div>
 <button class="ctl mmail" data-go="contact" aria-label="Contact"><img src="assets/mailbutton.svg" alt="" style="display:block;width:100%"></button></header>
 <div class="mlow"><section class="mband">
-<button class="mab" data-go="about" aria-label="About">About<svg viewBox="0 0 121 40" aria-hidden="true"><path d="M0 20H92" stroke="#000" stroke-width="14"/><path d="M80 0 121 20 80 40z"/></svg></button>
+<button class="mab" data-go="about" aria-label="About">About</button>
 <div class="mpa"><div class="t"></div></div><div class="mc"></div>
 <button class="ctl mx" data-go="" aria-label="Close"><svg viewBox="0 0 40 40" fill="none" stroke="#000" stroke-width="9"><path d="M5 5 35 35M35 5 5 35"/></svg></button></section>
 <nav class="mtiles" aria-label="Work"></nav></div></div>
